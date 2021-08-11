@@ -26,7 +26,7 @@ SECRET_KEY = 'mz&xqqg!-t8*e#4z#jw!t)omn)5lwldc3u0+*#ry$bv9%(9l=k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [artsystore.pythonanywhere.com,]
 
 
 # Application definition
