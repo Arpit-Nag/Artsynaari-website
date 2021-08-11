@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="row">
+
+
+      <div class="col-sm-3 col-md-3">
+        <div class="alert alert-danger">
+          <h3 class='Category-Head '>CATEGORIES</h3>
+        </div>
+        <ul class='nav flex-column'>
+          <li role = 'nav-item'><a class='nav-link' href="{% url 'store:product_list' %}"><h5 class='Category-Name'>ALL PRODUCTS</h5></a><hr></li>
+
+          {% for category in categories %}
+          <li class='nav-item' role = 'presentation'>
+            <a class="nav-link" href="{% url 'store:product_list' %}?category={{category.name}}">
+              <h5 class='Category-Name'>{{category.name}}</h5>
+            </a>
+            <hr>
+          </li>
+          {% endfor %}
+        </ul>
+        <h3 class='alert alert-primary Category-Name'>SLOTS</h3>
+        {% for slot in slots %}
+          {% if slot.request_slot %}
+            <h4>Assigned</h4>
+            <p>Slot {{forloop.counter}}</p>
+            <p>{{slot.starting_date}} - {{slot.ending_date}}</p>
+            <p>CATEGORY:{{slot.category}}</p>
+          {% else %}
+            <p>Slot {{forloop.counter}}</p>
+            <p>{{slot.starting_date}} - {{slot.ending_date}}</p>
+            <p>CATEGORY:{{slot.category}}</p>
+          {% endif %}
+          <hr>
+        {% endfor %}
+      </div>
+
+
+
+
+      <div class=" col-sm-9 col-md-9" id='product-list-section'>
+
+
+      <div class="row">
+          {% for product in products %}
+
+
+            <div class="Product-Table col-md-3">
+              <div class="card" id='product-card'>
+                <div class="view overlay">
+                  <img class='Product-Thumbnail col-12' id='product-thumbnail' src="{{product.image.url}}" alt="Product_Image_Unavailable">
+
+                </div>
+                <div class="card-body">
+                  <h3 class= 'card-title'>{{product.title}}</h3>
+                  <p class='card-text'>Rs.{{product.price}}</p>
+                  <p><a class='btn btn-primary btn-md' href="{% url 'store:product_detail' pk=product.pk %}">Details</a></p>
+                </div>
+              </div>
+
+            </div>
+
+          {% endfor %}
+            </div>
+
+
+        </div>
+        </div>
+
+
+
+{% endblock %}

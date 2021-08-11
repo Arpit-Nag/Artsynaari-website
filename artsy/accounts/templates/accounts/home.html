@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container">
+    <h2>Personal Details</h2>
+    <p>{{customer.first_name}} {{customer.last_name}}</p>
+    <p>{{customer.email}}</p>
+    <hr>
+    {% for purchase in purchases %}
+      <div class="alert alert-primary" role=alert>
+        <h4 class='alert-heading'>Request Information</h4>
+        <p>{{purchase.request_date}}</p>
+        <hr>
+        <p>{{purchase.product.title}}</p>
+        <p>{{purchase.product.category.name}}</p>
+        <p>Rs.{{purchase.product.price}}</p>
+        <p>Address:Address:{{purchase.local_address}},{{purchase.city}},{{purchase.district}},{{purchase.state}}-{{purchase.pin}}</p>
+        <h4>Your slot details will be shown here.</h4>
+        {% for slot in slots %}
+          {% if slot.request_slot == purchase %}
+            <p>{{slot.starting_date}}-{{slot.ending_date}}</p>
+            <a href="#">payment link</a>
+          {% endif %}
+        {% endfor %}
+        <br>
+        <p>Note: please note that, your payment link will be generated once you are assigned a slot.</p>
+        <p>payment status will be updated within 24 hours of the payment</p>
+
+
+        <p>Payment Status:{{purchase.payment_status}}</p>
+      </div>
+    {% endfor %}
+
+
+  </div>
+{% endblock %}

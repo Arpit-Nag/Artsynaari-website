@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container home_page">
+    <div class="alert alert-primary">
+      <h2 class='alert-heading'>{{product_request.product.title}}</h2>
+      <hr>
+      <p>To: {{product_request.customer.first_name}} {{product_request.customer.last_name}}</p>
+      <p>Address:{{product_request.local_address}},{{product_request.city}},{{product_request.district}},{{product_request.state}}-{{product_request.pin}}</p>
+      <p>Discription Given:{{product_request.discription}}</p>
+      <p>Contant No:{{product_request.contact}}</p>
+      <p>Email-Id:{{product_request.customer.email}}</p>
+      <p></p>
+    </div>
+
+
+  </div>
+
+{% endblock %}

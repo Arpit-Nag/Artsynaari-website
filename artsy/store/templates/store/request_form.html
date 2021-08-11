@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <div class="container">
+        <form class="" method="post">
+          {% csrf_token %}
+          {% bootstrap_form request_form %}
+          <button class='btn btn-primary' type="submit" name="Request">Request</button>
+          <!-- <button class='btn btn-primary' type="submit" name="Order">Order now</button> -->
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div class="container">
+        <div class="jumbotron">
+          <h3 style='padding:40px;'>YOUR REQUEST</h3>
+          <div class="row">
+            <img src="{{product.image.url}}" class="billing-image col-6" alt="cant display the image">
+            <div class="col-6">
+              <h3 class= 'card-title'>{{product.title}}</h3>
+              <p class='card-text'>Rs.{{product.price}}</p>
+            </div>
+
+            <div class="col-12" id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      SIZING INFORMATION                                            +
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    <table class='col-12' id="size-chart-1" >
+                      <thead>
+                        <td id="size-chart-1-cell">SIZE</td>
+                        <td id="size-chart-1-cell">CHEST</td>
+                        <td id="size-chart-1-cell">SHOULDER</td>
+                        <td id="size-chart-1-cell">HIGH WAIST</td>
+                        <td id="size-chart-1-cell">HIP</td>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td id="size-chart-1-cell">XS</td>
+                          <td id="size-chart-1-cell">32''</td>
+                          <td id="size-chart-1-cell">14''</td>
+                          <td id="size-chart-1-cell">24''</td>
+                          <td id="size-chart-1-cell">34''</td>
+                        </tr>
+                        <!-- <tr>
+                          <td>XS</td>
+                          <td>34''</td>
+                          <td>14''</td>
+                          <td>26''</td>
+                          <td>36''</td>
+                        </tr> -->
+                        <tr>
+                          <td id="size-chart-1-cell">S</td>
+                          <td id="size-chart-1-cell">34''</td>
+                          <td id="size-chart-1-cell">14''</td>
+                          <td id="size-chart-1-cell">26''</td>
+                          <td id="size-chart-1-cell">36''</td>
+                        </tr>
+                        <tr>
+                          <td id="size-chart-1-cell">M</td>
+                          <td id="size-chart-1-cell">36''</td>
+                          <td id="size-chart-1-cell">14.5''</td>
+                          <td id="size-chart-1-cell">28''</td>
+                          <td id="size-chart-1-cell">38''</td>
+                        </tr>
+                        <tr>
+                          <td id="size-chart-1-cell">L</td>
+                          <td id="size-chart-1-cell">38''</td>
+                          <td id="size-chart-1-cell">15''</td>
+                          <td id="size-chart-1-cell">30''</td>
+                          <td id="size-chart-1-cell">40''</td>
+                        </tr>
+                        <tr>
+                          <td id="size-chart-1-cell">XL</td>
+                          <td id="size-chart-1-cell">40''</td>
+                          <td id="size-chart-1-cell">15.5''</td>
+                          <td id="size-chart-1-cell">30''</td>
+                          <td id="size-chart-1-cell">40''</td>
+                        </tr>
+                        <tr>
+                          <td id="size-chart-1-cell">2XL</td>
+                          <td id="size-chart-1-cell">42''</td>
+                          <td id="size-chart-1-cell">15.5''</td>
+                          <td id="size-chart-1-cell">34''</td>
+                          <td id="size-chart-1-cell">44''</td>
+                        </tr>
+                        <tr>
+                          <td id="size-chart-1-cell">3XL</td>
+                          <td id="size-chart-1-cell">44''</td>
+                          <td id="size-chart-1-cell">16''</td>
+                          <td id="size-chart-1-cell">36''</td>
+                          <td id="size-chart-1-cell">46''</td>
+                        </tr>
+                        <tr>
+                          <td id="size-chart-1-cell">4XL</td>
+                          <td id="size-chart-1-cell">46''</td>
+                          <td id="size-chart-1-cell">16.5''</td>
+                          <td id="size-chart-1-cell">38''</td>
+                          <td id="size-chart-1-cell">48''</td>
+                        </tr>
+                        <tr>
+                          <td id="size-chart-1-cell">5XL</td>
+                          <td id="size-chart-1-cell">48''</td>
+                          <td id="size-chart-1-cell">16.5''</td>
+                          <td id="size-chart-1-cell">40''</td>
+                          <td id="size-chart-1-cell">50''</td>
+                        </tr>
+
+                      </tbody>
+
+                    </table>
+                    <table class='col-12' id="size-chart-1">
+                      <thead>
+                        <td id="size-chart-1-cell"></td>
+                        <td id="size-chart-1-cell">XS</td>
+                        <td id="size-chart-1-cell">S</td>
+                        <td id="size-chart-1-cell">M</td>
+                        <td id="size-chart-1-cell">L</td>
+                        <td id="size-chart-1-cell">XL</td>
+                        <td id="size-chart-1-cell">2XL</td>
+                        <td id="size-chart-1-cell">3XL</td>
+                        <td id="size-chart-1-cell">4XL</td>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td id="size-chart-1-cell">US</td>
+                          <td id="size-chart-1-cell">2</td>
+                          <td id="size-chart-1-cell">4-6</td>
+                          <td id="size-chart-1-cell">8-10</td>
+                          <td id="size-chart-1-cell">12-14</td>
+                          <td id="size-chart-1-cell">16-18</td>
+                          <td id="size-chart-1-cell">19-20</td>
+                          <td id="size-chart-1-cell">22-24</td>
+                          <td id="size-chart-1-cell">26-28</td>
+                        </tr>
+                        <tr>
+                          <td id="size-chart-1-cell">UK</td>
+                          <td id="size-chart-1-cell">6</td>
+                          <td id="size-chart-1-cell">8-10</td>
+                          <td id="size-chart-1-cell">12-14</td>
+                          <td id="size-chart-1-cell">16-18</td>
+                          <td id="size-chart-1-cell">20-22</td>
+                          <td id="size-chart-1-cell">24-26</td>
+                          <td id="size-chart-1-cell">28-30</td>
+                          <td id="size-chart-1-cell">32-32</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        CUSTOMIZATION SIZING CHART+
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                      <img class='sizing-image col-12' src="{% static 'site_images/sizing1.PNG' %}" alt="no image">
+                    </div>
+                  </div>
+                  </div>
+
+                </div>
+
+
+
+            <!-- <img class='sizing-image' src="{% static 'site_images/sizing2.PNG' %}" style = 'width:400px; padding:10px;'alt="no image"> -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<p></p>
+<p></p>
+<p></p>
+
+{% endblock %}

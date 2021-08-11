@@ -1,0 +1,155 @@
+#slideshow-image{
+  /* border:10px solid #8B88E8; */
+  /* padding:30px; */
+  height:700px;
+  width:1000px;
+  background-color: white;
+}
+
+#logo{
+  width:200px;
+
+
+}
+
+#product-thumbnail{
+
+  /* align:center; */
+}
+
+#product-list-section{
+  background-color:#aad7e3;
+  /* padding:5px; */
+}
+
+
+#muses-image{
+
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+    /* width:200px; */
+  }
+
+
+#muses-section{
+  align-self: center;
+  background-color:#ebdd75;
+  padding:30px;
+  border:1px solid black;
+
+}
+
+#third{
+  /* background-color:#5DF7F9; */
+  /* padding:40px; */
+  /* background-image: url('https://media.giphy.com/media/O93iSC9WQKYTctoX3Y/giphy.gif'); */
+}
+#notice-board{
+  text-align:center;
+  padding:20px;
+  border: 10px solid #B9750D;
+  background-color:#059707;
+  background-image: url('https://media.giphy.com/media/xThuWjC7yute751y0g/source.gif');
+  }
+
+#product-card{
+    /* height:600px; */
+    align:center;
+    /* border:5px solid black; */
+  }
+
+#notice-board-text{
+margin: 30px;
+background-color: #ffffff;
+border: 1px solid black;
+/* opacity: 0.6; */
+color: black;
+}
+
+
+#notice-board-section{
+  padding:20px;
+  background-color: #5DF7F9;
+  border-top: 10px solid white;
+}
+
+#image-container-table{
+
+  margin-left: auto;
+  margin-right: auto;
+  padding:30px;
+
+}
+#image-container-cell{
+  padding:10px;
+  /* border:1px solid black; */
+}
+.about-page-ss {
+  /* padding:0px; */
+  /* width:1500px;
+  height:700px; */
+  align:center;
+}
+
+
+.about-ss{
+  align:center;
+}
+.Product-Thumbnail{
+    /* width:334px; */
+   align:center;
+   padding:10px;
+   }
+.billing-image{
+   width:500px;
+   }
+ .Category-Name{
+   text-align: center;
+   }
+
+ .Category-Head{
+   padding:10px;
+   border:10px;
+   text-align: center;
+   }
+
+ .Product-Table{
+   padding:10px;
+   }
+
+ .Product-Images{
+   width:700px;
+   align: center;
+   padding:20px;
+   }
+ .Product-Details{
+   padding-top:20px;
+   }
+ .detail{
+     /* padding:50px; */
+   }
+ .book-button{
+   align:left;
+   }
+
+ .home_page{
+    padding:100px ;
+
+ }
+
+ .blog_detail{
+   padding-top:10px;
+ }
+
+.sizing-image{
+  width:200px;
+  padding:10px;
+}
+
+.postcontent{
+  text-align:center;
+  padding:20px;
+  background-color: #ffffff;
+
+  }

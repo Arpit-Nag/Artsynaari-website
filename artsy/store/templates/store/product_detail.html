@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row detail">
+  <div class=" container col-sm-3 col-md-3 ">
+    <div class="alert alert-danger">
+      <h3 class='Category-Head '>CATEGORIES</h3>
+    </div>
+    <ul class='nav flex-column'>
+      <li role = 'nav-item'><a class='nav-link' href="{% url 'store:product_list' %}"><h5 class='Category-Name'>ALL PRODUCTS</h5></a><hr></li>
+
+      {% for category in categories %}
+      <li class='nav-item' role = 'presentation'>
+        <a class="nav-link" href="{% url 'store:product_list' %}?category={{category.name}}">
+          <h5 class='Category-Name'>{{category.name}}</h5>
+        </a>
+        <hr>
+      </li>
+      {% endfor %}
+    </ul>
+    <h3 class='alert alert-primary Category-Name'>SLOTS</h3>
+    {% for slot in slots %}
+      {% if slot.request_slot %}
+        <h4>Assigned</h4>
+        <p>Slot {{forloop.counter}}</p>
+        <p>{{slot.starting_date}} - {{slot.ending_date}}</p>
+        <p>CATEGORY:{{slot.category}}</p>
+      {% else %}
+        <p>Slot {{forloop.counter}}</p>
+        <p>{{slot.starting_date}} - {{slot.ending_date}}</p>
+        <p>CATEGORY:{{slot.category}}</p>
+      {% endif %}
+      <hr>
+    {% endfor %}
+
+
+
+  </div>
+
+
+
+  <div class="col-sm-5 col-md-5">
+  <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+     <!--Indicators-->
+     <ol class="carousel-indicators">
+     {% for p in photos %}
+       <li data-target="#carousel-example-1z" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
+     {% endfor %}
+     </ol>
+     <!--/.Indicators-->
+     <!--Slides-->
+     <div class="carousel-inner" role="listbox">
+       {% for p in photos %}
+       <div class="Product-Images carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+         <img class="d-block w-100" src="{{p.images.url}}"
+           alt="First slide">
+           <!--Controls-->
+           <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+             <span class="sr-only">Previous</span>
+           </a>
+           <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+             <span class="carousel-control-next-icon" aria-hidden="true"></span>
+             <span class="sr-only">Next</span>
+           </a>
+           <!--/.Controls-->
+       </div>
+
+
+       {% endfor %}
+
+       </div>
+   </div>
+
+
+</div>
+
+<div class="Product-Details col-md-4 col-sm-4">
+  <h3>{{product.title}}</h3>
+  <hr>
+  <p>DISCRIPTION:{{product.description | safe | linebreaksbr }}</p>
+  <p>PRICE:Rs.{{product.price}}</p>
+    <a class='btn btn-primary' href="{% url 'store:request_form' pk=product.pk %}">ORDER NOW</a>
+    <a class='btn btn-primary' href="{% url 'store:request_form' pk=product.pk %}">REQUEST CUSTOMIZATION</a>
+
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-3 col-md-3">
+
+
+  </div>
+  <div class="col-sm-9 col-md-9" >
+    <div class="alert alert-success" role="alert">
+          <h4 style='text-align:center'>YARNS</h4>
+    </div>
+    <div class='container' >
+    <div class="row">
+      {% for yarn in yarns %}
+
+      <div class="Product-Table col-md-2">
+
+
+      <div class="card text-white " style='background-color:{{yarn.color}}'>
+        <div class="card-header">
+          <h5>{{yarn.material}}</h5>
+        </div>
+        <div class="card-body">
+          <h6>{{yarn.color_name}}</h6>
+        </div>
+      </div>
+          </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="row">
+<div class="col-sm-3 col-md-3">
+</div>
+
+<div class=" col-sm-9 col-md-9" id='product-list-section'>
+  <hr>
+  <div class="row">
+    {% for product in products %}
+
+      <div class="Product-Table col-md-4">
+        <div class="card">
+          <div class="view overlay">
+            <img class='Product-Thumbnail col-12' src="{{product.image.url}}" alt="Product_Image_Unavailable">
+
+          </div>
+          <div class="card-body">
+            <h3 class= 'card-title'>{{product.title}}</h3>
+            <p class='card-text'>Rs.{{product.price}}</p>
+            <p><a class='btn btn-primary btn-md' href="{% url 'store:product_detail' pk=product.pk %}">Details</a></p>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    {% endfor %}
+  </div>
+</div>
+
+</div>
+
+
+ {% endblock %}

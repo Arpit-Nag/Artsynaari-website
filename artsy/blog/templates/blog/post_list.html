@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-3 col-md-3">
+    <div class="alert alert-danger">
+      <h3 class='Category-Head '>CATEGORIES</h3>
+    </div>
+    <ul class='nav flex-column'>
+      <li role = 'nav-item'><a class='nav-link' href="{% url 'blog:post_list' %}"><h5 class='Category-Name'>ALL POSTS</h5></a><hr></li>
+
+      {% for category in categories %}
+      <li class='nav-item' role = 'presentation'>
+        <a class="nav-link" href="{% url 'blog:post_list' %}?category={{category.name}}">
+          <h5 class='Category-Name'>{{category.name}}</h5>
+        </a>
+        <hr>
+      </li>
+      {% endfor %}
+    </ul>
+    </div>
+    <div class="col-sm-9 col-md-9" id='product-list-section'>
+
+
+    <div class="row">
+    {% for post in posts %}
+
+
+      <div class="Product-Table col-md-3">
+        <div class="card">
+          <div class="view overlay">
+            <img class='Product-Thumbnail col-12' src="{{post.image.url}}" alt="Post_Image_Unavailable">
+
+          </div>
+          <div class="card-body">
+            <h3 class= 'card-title'>{{post.title}}</h3>
+            <p class='card-text'>{{post.published_date}}</p>
+            <p><a class='btn btn-primary btn-md' href="{% url 'blog:post_detail' pk=post.pk %}">Details</a></p>
+          </div>
+        </div>
+
+      </div>
+
+    {% endfor %}
+      </div>
+      </div>
+      </div>
+{% endblock %}
